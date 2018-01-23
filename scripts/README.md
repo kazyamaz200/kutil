@@ -39,6 +39,8 @@ docker-compose.yaml to jsonnet
 scripts/kompose-example.sh
 ```
 
+show component list
+
 ```
 cd /work/cluster1 && ks component list
 ```
@@ -253,6 +255,8 @@ kubectl get pod
 kubectl get svc
 kubectl get ing
 ```
+
+http://bookinfo.service.op
 
 ## Teardown
 
