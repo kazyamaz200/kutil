@@ -52,11 +52,21 @@ Version: 0.5.1
 
 - [ksonnet/ksonnet](https://github.com/ksonnet/ksonnet)
 
+release
+
 ```
 $ docker run kutil/kutil ks version
 ksonnet version: v0.8.0
 jsonnet version: v0.9.5
 client-go version: v1.6.8-beta.0+$Format:%h$
+```
+
+edge
+
+```
+ksonnet version: dev-2018-01-23T04:30:10+0000
+jsonnet version: v0.9.5
+client-go version: 1.6+
 ```
 
 - [kubernetes/kompose](https://github.com/kubernetes/kompose)
