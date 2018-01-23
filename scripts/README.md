@@ -12,34 +12,36 @@ rke up #=> start kubernetes cluster
 ### After start
 
 ```
-scripts/ksonnet.sh
-scripts/repos.sh
+scripts/ksonnet.sh #=> initialize ks proj
+scripts/repos.sh #=> clone repositories
 ```
 
-### Prepre components(jsonnet)
+### Befor deploy
+
+convert repository yaml to jsonnet
 
 ```
 scripts/ingress-nginx.sh
-scripts/weave-scope.sh
 scripts/rook.sh
-scripts/kompose-example.sh
 scripts/faas.sh
 scripts/istio.sh
 ```
 
-### Before deploy(when repeat)
+convert web yaml to jsonnet
 
 ```
-scripts/reset.sh SSH_USERNAME HOST1,HOST2,HOST3
+scripts/weave-scope.sh
 ```
 
-### Component List
+docker-compose.yaml to jsonnet
+
+```
+scripts/kompose-example.sh
+```
 
 ```
 cd /work/cluster1 && ks component list
 ```
-
-
 
 ## Deploy
 
@@ -266,3 +268,7 @@ cd /work
 rke remove
 ```
 
+***container&data***
+```
+scripts/reset.sh SSH_USERNAME HOST1,HOST2,HOST3
+```
