@@ -1,0 +1,72 @@
+version: '2'
+.catalog:
+  name: dcm
+  description: |
+    DNS & CA Management Stack Template
+  version: 0.1.0-beta-rancher1
+  category: Applications
+  maintainer: "Kazuhito Yamazawa <yamazawa@supersoftware.co.jp>"
+  minimum_rancher_version: v1.5.3
+  uuid: dcm-0
+  questions:
+  - variable: "rancher_url"
+    description: "(e.g. https://try.rancher.com/v2-beta/projects/1a000000"
+    label: "Rancher URL"
+    required: true
+    default: ""
+    type: "string"
+  - variable: "rancher_access_key"
+    description: "(e.g. 0123456789ABCDEFGHIJ"
+    label: "Rancher Access Key"
+    required: true
+    default: ""
+    type: "string"
+  - variable: "rancher_secret_key"
+    description: "(e.g. tWDfcApTikyUkoivSsi46jvXmFW8VFFq9F5zKfao"
+    label: "Rancher Secret Key"
+    required: true
+    default: ""
+    type: "string"
+  - variable: "dns_srv_addr"
+    description: "(e.g. 172.16.0.30"
+    label: "DNS Public IP"
+    required: true
+    default: ""
+    type: "string"
+  - variable: "ctd"
+    description: "private custom toplevel domain. (e.g. git.service.op, registry.service.op"
+    label: "Custom Toplevel Domain"
+    required: true
+    default: "op"
+    type: "string"
+  - variable: "resolve_ip"
+    description: "dns resolve ip. (e.g. git.service.op => 172.16.0.30, registry.service.op => 172.16.0.30"
+    label: "Service Resolve IP"
+    required: true
+    default: "172.16.0.30"
+    type: "string"
+  - variable: "ca_subject"
+    description: ""
+    label: "CA Subject"
+    required: true
+    default: "Owned CA"
+    type: "string"
+  - variable: "cert_name"
+    description: "must not have '/'"
+    label: "Initial Cert Name"
+    required: true
+    default: "service.op-v1"
+    type: "string"
+services:
+  register-cert:
+    scale: 1
+    start_on_create: true
+  register-service:
+    scale: 1
+    start_on_create: true
+  authority:
+    scale: 1
+    start_on_create: true
+  consul:
+    scale: 1
+    start_on_create: true

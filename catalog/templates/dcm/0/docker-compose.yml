@@ -1,0 +1,73 @@
+version: '2'
+services:
+  register-service:
+    image: supersoftware/bop:register-service
+    environment:
+      CONSUL_URL: http://dcm-register-service-consul-1.rancher.internal:8500/v1
+      SERVICES: '[{"ID":"weave1","Name":"weave","Address":"${resolve_ip}"},{"ID":"guestbook1","Name":"guestbook","Address":"${resolve_ip}"},{"ID":"wordpress1","Name":"wordpress","Address":"${resolve_ip}"},{"ID":"rgw1","Name":"rgw","Address":"${resolve_ip}"},{"ID":"gateway1","Name":"gateway","Address":"${resolve_ip}"}]'
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.sidekicks: consul
+      io.rancher.container.hostname_override: container_name
+  register-cert:
+    image: supersoftware/bop:register-cert
+    environment:
+      RANCHER_URL: ${rancher_url}
+      RANCHER_ACCESS_KEY: ${rancher_access_key}
+      RANCHER_SECRET_KEY: ${rancher_secret_key}
+      CA_CERT_PATH: /certs/ca.pem
+      SSL_KEY_PATH: /certs/key.pem
+      SSL_CERT_PATH: /certs/cert.pem
+      CERT_NAME: ${cert_name}
+    stdin_open: true
+    tty: true
+    volumes_from:
+    - authority
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.start_once: 'true'
+      io.rancher.sidekicks: authority
+      io.rancher.container.hostname_override: container_name
+  authority:
+    image: paulczar/omgwtfssl
+    environment:
+      SSL_DNS: weave.service.${ctd},guestbook.service.${ctd},wordpress.service.${ctd},rgw.service.${ctd},gateway.service.${ctd}
+      SSL_EXPIRE: '36500'
+      SSL_SUBJECT: service.${ctd}
+      CA_EXPIRE: '36500'
+      CA_SUBJECT: ${ca_subject}
+    stdin_open: true
+    volumes:
+    - /tmp/certs:/certs
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+  consul:
+    image: consul
+    stdin_open: true
+    tty: true
+    ports:
+    - 53:8600/tcp
+    - 53:8600/udp
+    command:
+    - agent
+    - -server
+    - -bootstrap
+    - -client
+    - 0.0.0.0
+    - -recursor
+    - 8.8.8.8
+    - -recursor
+    - 8.8.4.4
+    - -domain
+    - ${ctd}
+    - -datacenter
+    - rancher
+    - -ui
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.hostname_override: container_name

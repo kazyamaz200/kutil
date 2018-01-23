@@ -1,0 +1,10 @@
+version: '2'
+services:
+  kutil:
+    image: kutil/kutil:edge
+    stdin_open: true
+    volumes:
+    - cluster1:/work
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
