@@ -60,7 +60,6 @@ WORKDIR /work
 
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY scripts /work/scripts
-COPY edge /usr/local/bin
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["bash"]
