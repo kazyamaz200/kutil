@@ -27,10 +27,10 @@ scripts/faas.sh
 scripts/istio.sh
 ```
 
-### Before deploy
+### Before deploy(when repeat)
 
 ```
-scripts/reset-rook-data.sh SSH_USERNAME HOST1,HOST2,HOST3
+scripts/reset.sh SSH_USERNAME HOST1,HOST2,HOST3
 ```
 
 ### Component List
