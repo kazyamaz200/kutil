@@ -1,23 +1,3 @@
-# Scripts for [kutil/kutil](https://hub.docker.com/r/kutil/kutil/)
-
-## Getting Started
-
-***a) work on local container***
-```
-mkdir work && cd work
-docker run -it -v $PWD:/work kutil/kutil:edge
-```
-
-***b) work on remote container***
-```
-rancher exec -it cluster1/kutil bash
-```
-
-***clone this***
-```
-git clone https://github.com/kyamazawa/kutil-scripts.git scripts
-```
-
 ## Setup(on `kutil` container)
 
 ### Start Kubernetes Cluster

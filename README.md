@@ -2,6 +2,19 @@
 
 kutil is the client toolbox for manage kubernetes cluster.
 
+## Getting Started
+
+***a) work on local container***
+```
+mkdir work && cd work
+docker run -it -v $PWD:/work kutil/kutil:edge
+```
+
+***b) work on remote container***
+```
+rancher exec -it cluster1/kutil bash
+```
+
 ## Includes
 
 - [kubernetes/kubectl](https://github.com/kubernetes/kubectl)
