@@ -15,6 +15,10 @@ docker run -it -v $PWD:/work kutil/kutil:edge
 rancher exec -it cluster1/kutil bash
 ```
 
+***cluster setup***
+
+see [scripts](scripts/README.md)
+
 ## Includes
 
 - [kubernetes/kubectl](https://github.com/kubernetes/kubectl)
