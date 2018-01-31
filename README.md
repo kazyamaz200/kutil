@@ -32,7 +32,7 @@ Client Version: version.Info{Major:"1", Minor:"9", GitVersion:"v1.9.1", GitCommi
 
 ```
 $ docker run kutil/kutil rke --version
-rke version v0.0.12-dev
+rke version v0.1.0
 ```
 
 - [wercker/stern](https://github.com/wercker/stern)
@@ -46,8 +46,8 @@ stern version 1.6.0
 
 ```
 $ docker run kutil/kutil faas-cli version
-Commit: d1d38e9b2d5600a3485442b75641bf73b566313b
-Version: 0.5.1
+Commit: 28019a2de56f2f383e5e161e7a32087030239239
+Version: 0.6.0
 ```
 
 - [ksonnet/ksonnet](https://github.com/ksonnet/ksonnet)
@@ -73,18 +73,19 @@ client-go version: 1.6+
 
 ```
 $ docker run kutil/kutil kompose version
-1.7.0 (767ab4b)
+1.8.0 (0c0c027)
 ```
 
 - [istio/istio](https://github.com/istio/istio)
 
 ```
-docker run kutil/kutil istioctl version
-Version: 0.4.0
-GitRevision: 24089ea97c8d244493c93b499a666ddf4010b547
-GitBranch: 6401744b90b43901b2aa4a8bced33c7bd54ffc13
-User: root@cc5c34bbd1ee
-GolangVersion: go1.9.1
+$ docker run kutil/kutil istioctl version
+Version: 0.5.0
+GitRevision: c9debceacb63a14a9ae24df433e2ec3ce1f16fc7
+User: root@211b132eb7f1
+Hub: docker.io/istio
+GolangVersion: go1.9
+BuildStatus: Clean
 ```
 
 - [bronze1man/yaml2json](https://github.com/bronze1man/yaml2json)
