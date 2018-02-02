@@ -31,23 +31,23 @@ Client Version: version.Info{Major:"1", Minor:"9", GitVersion:"v1.9.1", GitCommi
 - [rancher/rke](https://github.com/rancher/rke)
 
 ```
-$ docker run kutil/kutil rke --version
-rke version v0.1.0
+$ docker run kutil/kutil:release rke --version
+rke version v0.1.1-rc1
 ```
 
 - [wercker/stern](https://github.com/wercker/stern)
 
 ```
-$ docker run kutil/kutil stern --version
+$ docker run kutil/kutil:release stern --version
 stern version 1.6.0
 ```
 
 - [openfaas/faas-cli](https://github.com/openfaas/faas-cli)
 
 ```
-$ docker run kutil/kutil faas-cli version
-Commit: 28019a2de56f2f383e5e161e7a32087030239239
-Version: 0.6.0
+$ docker run kutil/kutil:release faas-cli version
+Commit: 2a790b4a6702c533137801279a9288b4691977c6
+Version: 0.6.1
 ```
 
 - [ksonnet/ksonnet](https://github.com/ksonnet/ksonnet)
@@ -55,7 +55,7 @@ Version: 0.6.0
 release
 
 ```
-$ docker run kutil/kutil ks version
+$ docker run kutil/kutil:release ks version
 ksonnet version: v0.8.0
 jsonnet version: v0.9.5
 client-go version: v1.6.8-beta.0+$Format:%h$
@@ -72,14 +72,14 @@ client-go version: 1.6+
 - [kubernetes/kompose](https://github.com/kubernetes/kompose)
 
 ```
-$ docker run kutil/kutil kompose version
+$ docker run kutil/kutil:edge kompose version
 1.8.0 (0c0c027)
 ```
 
 - [istio/istio](https://github.com/istio/istio)
 
 ```
-$ docker run kutil/kutil istioctl version
+$ docker run kutil/kutil:release istioctl version
 Version: 0.5.0
 GitRevision: c9debceacb63a14a9ae24df433e2ec3ce1f16fc7
 User: root@211b132eb7f1
