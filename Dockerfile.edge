@@ -11,7 +11,7 @@ ARG KOMPOSE_VERSION="v1.8.0"
 ARG ISTIO_VERSION="0.5.0"
 ARG YAML2JSON_VERSION="v1.0"
 
-ENV KUBECONFIG /work/.kube_config_cluster.yml
+ENV KUBECONFIG /work/kube_config_cluster.yml
 
 RUN apk --update add ca-certificates git openssh curl jq bash-completion && \
     mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
