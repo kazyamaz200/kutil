@@ -3,7 +3,7 @@ FROM bash
 LABEL maintainer Kazuhito Yamazawa <yamazawa@supersoftware.co.jp>
 
 ARG KUBECTL_VERSION="v1.9.1"
-ARG RKE_VERSION="v0.1.1-rc1"
+ARG RKE_VERSION="v0.1.1-rc2"
 ARG STERN_VERSION="1.6.0"
 ARG FAAS_CLI_VERSION="0.6.2"
 ARG KS_VERSION="v0.8.0"
