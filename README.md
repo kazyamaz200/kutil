@@ -32,7 +32,7 @@ Client Version: version.Info{Major:"1", Minor:"9", GitVersion:"v1.9.1", GitCommi
 
 ```
 $ docker run kutil/kutil:release rke --version
-rke version v0.1.1-rc2
+rke version v0.1.1
 ```
 
 - [wercker/stern](https://github.com/wercker/stern)
@@ -46,8 +46,7 @@ stern version 1.6.0
 
 ```
 $ docker run kutil/kutil:release faas-cli version
-Commit: 2a790b4a6702c533137801279a9288b4691977c6
-Version: 0.6.1
+Version: 0.6.2
 ```
 
 - [ksonnet/ksonnet](https://github.com/ksonnet/ksonnet)
