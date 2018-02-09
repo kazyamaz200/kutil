@@ -13,8 +13,7 @@ ARG YAML2JSON_VERSION="v1.0"
 
 ENV KUBECONFIG /work/kube_config_cluster.yml
 
-RUN apk --update add ca-certificates git openssh curl jq bash-completion && \
-    ruby ruby-rake ruby-io-console ruby-bundler && \
+RUN apk --update add ca-certificates git openssh curl jq bash-completion ruby ruby-rake ruby-io-console ruby-bundler && \
     mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
     echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc && \
     rm -rf /var/lib/apt/lists/* && \
