@@ -1,19 +1,19 @@
-FROM bash
+FROM certbot/certbot
 
 LABEL maintainer Kazuhito Yamazawa <yamazawa@supersoftware.co.jp>
 
-ARG KUBECTL_VERSION="v1.9.1"
+ARG KUBECTL_VERSION="v1.9.6"
 ARG RKE_VERSION="v0.1.2"
 ARG STERN_VERSION="1.6.0"
-ARG FAAS_CLI_VERSION="0.6.3"
-ARG KS_VERSION="v0.9.0"
+ARG FAAS_CLI_VERSION="0.6.4"
+ARG KS_VERSION="v0.9.1"
 ARG KOMPOSE_VERSION="v1.10.0"
 ARG ISTIO_VERSION="0.6.0"
 ARG YAML2JSON_VERSION="v1.0"
 
 ENV KUBECONFIG /work/kube_config_cluster.yml
 
-RUN apk --update add ca-certificates git openssh curl jq bash-completion ruby ruby-rake ruby-io-console ruby-bundler docker make && \
+RUN apk --update add ca-certificates git openssh curl jq bash-completion ruby ruby-rake ruby-io-console ruby-bundler docker make bash && \
     mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
     echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc && \
     rm -rf /var/lib/apt/lists/* && \
