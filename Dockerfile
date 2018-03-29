@@ -3,7 +3,7 @@ FROM certbot/certbot
 LABEL maintainer Kazuhito Yamazawa <yamazawa@supersoftware.co.jp>
 
 ARG KUBECTL_VERSION="v1.9.6"
-ARG RKE_VERSION="v0.1.3"
+ARG RKE_VERSION="v0.1.5-rc1"
 ARG STERN_VERSION="1.6.0"
 ARG FAAS_CLI_VERSION="0.6.4"
 ARG KS_VERSION="v0.9.1"
